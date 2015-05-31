@@ -63,9 +63,59 @@ class Stack():
 ###
 # Linked List
 # useless to implement just look at any of the above 2...
-		
+# just kidding, there's fun ways to  insert and delete and find things
+
+###
+# Here is a tree node, useful for all sorts of trees
+class TreeNode():
+	def __init__(self,key,val,left=None,right=None):
+		self.key = key
+		self.val = val
+		self.left = left
+		self.right = right
+	def get_left(self):
+		return self.left
+	def set_left(self,newleft):
+		self.left = newleft
+	def get_right(self):
+		return self.right
+	def set_right(self,newright):
+		self.right = newright
+	def get_val(self):
+		return self.val
+	def set_val(self,newval):
+		self.val = newval
+	def get_key(self):
+		return self.key
+	def compare_to(self,node):
+		return self.val - node.get_val()
+
 ###
 # BST
+class BST():
+	def __init__(self):
+		self.root = None
+	def insert(self,node):
+		if self.root is None:
+			self.root = node
+		else:
+			cur = self.root
+			while True:
+				#compare till you find right spot
+				comparison = curr.compare_to(node)
+				if comparison > 0:
+					if curr.get_left() is None:
+						curr.set_left(node)
+						break
+					else:
+						curr = curr.get_left()
+				else:
+					if curr.get_right() is None:
+						curr.set_right(node)
+						break
+					else:
+						curr = curr.get_right()
+
 
 ###
 # 2-3 Tree
